@@ -1,0 +1,246 @@
+html, body, section {
+   padding: 0;
+   margin: 0;
+}
+
+p {
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   width: 100vw;
+   height: 100vh;
+   font-family: "Jua", sans-serif;
+   background-color: black;
+   background-size: cover;
+   background-position: center;
+   transition: 750ms all ease-out;
+}
+
+#video-bg {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   width: 100vw;
+   height: 100vh;
+   object-fit: cover;
+   z-index: -1;
+   opacity: 0;
+   filter: brightness(70%);
+   transform: translate(-50%, -50%);
+}
+
+#preloader {
+   display: flex;
+   justify-content: center;
+   right: 0;
+   height: 120px;
+   position: absolute;
+   z-index: 1;
+   animation-timing-function: linear;
+}
+
+#start-loading {
+   position: absolute;
+   z-index: 1;
+   display: flex;
+   height: 100vh;
+   width: 100%;
+   background-color: black;
+   justify-content: center;
+   align-items: center;
+}
+
+#sec-start-loading > #webtitle {
+   animation: bigger-wigtext 1s forwards, loop-fade 3s infinite linear;
+   animation-delay: 0s, 3s;
+}
+
+#preloader-fetch {
+   display: flex;
+   font-family: 'Poppins';
+   justify-content: space-around;
+   align-items: center;
+   padding: 0.7rem;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+   margin: 1.5rem;
+   min-width: 200px;
+   background-color: rgba(0, 0, 0, 0.2);
+   box-shadow:
+   3px 0 5px red,
+   0 3px 5px blue;
+   border-radius: 1rem;
+   animation: hue-rotating 3s infinite;
+   animation-timing-function: linear;
+}
+
+#preloader-fetch > p {
+   font-size: 1rem;
+   font-weight: 500;
+   color: white;
+   text-align: left;
+}
+
+#preloader-fetch > img {
+   margin: 0;
+   padding: 0;
+   width: 25%;
+   aspect-ratio: 1;
+   filter: invert(100%);
+}
+
+@keyframes hue-rotating {
+   0% {
+      filter: hue-rotate(0deg);
+   }
+   50% {
+      filter: hue-rotate(180deg);
+   }
+   100% {
+      filter: hue-rotate(360deg);
+   }
+}
+
+@keyframes fading-out {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
+@keyframes bigger-wigtext {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes loop-fade {
+   0% {
+      opacity: 1;
+   }
+   50% {
+      opacity: 0.4;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+#container {
+   display: flex;
+   justify-content: center;
+}
+
+#th-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   padding: 5vh;
+   width: 25vw;
+   margin-top: 10vh;
+   height: 70vh;
+   background-color: rgba(39, 39, 39, 0.22);
+   color: white;
+   -webkit-backdrop-filter: blur(20px);
+   backdrop-filter: blur(20px);
+   box-shadow: 
+   0 0 10px rgb(255, 0, 144),
+   0 10px 10px rgba(0, 128, 255, 0.523),
+   10px 0 10px rgba(255, 191, 0, 0.523);
+   border-radius: 2rem;
+   overflow-y: auto;
+   overflow-x: hidden;
+   transition: 500ms all ease-out;
+}
+
+#webtitle, #webdesc {
+   font-size: 6rem;
+   color: white;
+}
+
+#webdesc {
+   font-family: 'Poppins';
+   font-size: 1rem;
+   font-style: normal;
+   font-weight: 600;
+   margin-top: -1rem;
+}
+
+#sforms {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+#sforms p {
+   font-size: 1.2rem;
+   font-family: 'Poppins';
+   font-weight: bold;
+   margin-bottom: 0.5rem;
+}
+
+#sforms input {
+   width: 100%;
+   padding: 1rem;
+   padding-right: 0;
+   margin-bottom: 1rem;
+   border: none;
+   border-radius: 0.5rem;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   box-shadow: 0 0 5px rgba(255, 255, 255, 0.246);
+}
+
+#thf-container {
+   text-align: center;
+}
+
+#sforms input:hover {
+   box-shadow: 0 0 5px rgba(62, 104, 255, 0.787);
+}
+ 
+/* Tablet Responsive */
+@media (max-height: 600px) {
+
+   #webtitle {
+      font-size: 8rem;
+      color: #a09fff;
+   }
+
+   #webdesc {
+      font-size: 1.2rem;
+   }
+
+   #thf-container {
+      text-align: left;
+   }
+
+   #th-container {
+     -webkit-backdrop-filter: brightness(20%);
+     backdrop-filter: brightness(20%);
+     transform: scale(0.85);
+     width: 100%;
+     margin-top: 0;
+     height: 90vh;
+     box-shadow: 0 0 50px rgb(255, 255, 255);
+   }
+
+   #sforms {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+   }
+
+   #sforms > #formsubmit {
+      margin-left: 0.5vw; /* least dumbest way to centers button lmao */
+   }
+
+}
