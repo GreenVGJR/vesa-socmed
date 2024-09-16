@@ -21,46 +21,26 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Meaning
+Vesa merupakan aplikasi sosial media berbasis web yang bertuju untuk antar komunikasi antar orang, serta menciptakan histori setiap unggah suatu konten.
+
+## To-do use
+1. Rename the file '.env.example' to '.env'
+2. Find the file 'vesa_socmed.sql'
+3. Import to PhpMyAdmin (or any support tool, SQL ofc)
+4. Ran cmd 'php artisan optimize' first
+5. Then ran 'php artisan serve'
+
+## Note
+This app is freaking unstable, (demi ngejar deadline)<br>
+and also it has some missing actions or something else.
+
+![image](https://github.com/user-attachments/assets/a780ced5-ca07-4d96-a827-c3de91726228)
+![image](https://github.com/user-attachments/assets/8f30d3c5-dfc0-4549-bea8-3be42719ca32)
+![image](https://github.com/user-attachments/assets/533e78f8-f68c-4033-8dbd-d167c5b9bd92)
+![image](https://github.com/user-attachments/assets/872a2536-a14d-43dc-8162-b555dc671921)
+![image](https://github.com/user-attachments/assets/b895c930-2a4d-47ab-bff9-8df37b61650a)
