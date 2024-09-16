@@ -519,6 +519,26 @@ img[src="./asset_media/comments.png"]:hover, img[src="./asset_media/like_off.png
    cursor: pointer;
  }
 
+ #album-popup-alert {
+   display: none;
+   gap: 1.2vh;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   left: 42%;
+   width: 15%;
+   bottom: 10%;
+   padding: 1rem;
+   text-align: center;
+   font-family: 'Poppins';
+   font-weight: 500;
+   background-color: #6363639f;
+   color: white;
+   border-radius: 1rem;
+   z-index: 1;
+ }
+
  #line-popup-alert {
    width: 80%;
    height: 2px;
@@ -819,6 +839,8 @@ img[src="./asset_media/comments.png"]:hover, img[src="./asset_media/like_off.png
 }
 
 #image-preview-uploadmediauser img {
+   margin: 0;
+   width: 100%;
    max-height: 35vh;
    object-fit: contain; /* Change to 'contain' to prevent cropping */
 }

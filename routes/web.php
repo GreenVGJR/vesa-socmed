@@ -31,6 +31,9 @@ Route::get('/api/get/request/search', [DataController::class, "findSearching"])-
 Route::post('/api/post/request/account', [DataController::class, "requestActionAccount"])->name('requestActionAccount'); //Update Account
 Route::delete('/api/post/request/account', [DataController::class, "requestActionAccount"])->name('deleteActionAccount'); //Delete Account
 
+Route::post('/api/post/request/album', [DataController::class, "requestActionAlbum"])->name('requestActionAlbum'); //Edit Album
+Route::delete('/api/post/request/album', [DataController::class, "requestActionAlbum"])->name('deleteActionAlbum'); //Delete Album
+
 /*
 TYPE METHOD
 

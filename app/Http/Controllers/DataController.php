@@ -467,4 +467,12 @@ class DataController extends Controller
             ]);
         }
     }
+
+    public function requestActionAlbum(Request $request) {
+        if($request->isMethod('POST')) {
+        }
+        else if($request->isMethod('DELETE')) {
+
+        }
+    }
 }

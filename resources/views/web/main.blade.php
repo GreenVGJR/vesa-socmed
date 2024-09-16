@@ -39,6 +39,12 @@
       <div id="line-popup-alert"></div>
       <p>Delete Comment</p>
    </div>
+   <!-- Second Pop-Up Alerts -->
+   <div id="album-popup-alert">
+      <p>Edit Album</p>
+      <div id="line-popup-alert"></div>
+      <p>Delete Album</p>
+   </div>
    <div id="custom-alert">
    <p>Fetching..</p>
    </div>

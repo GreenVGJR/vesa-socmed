@@ -389,6 +389,42 @@ function showCustomAlert(text1, text2, eventHandler1, eventHandler2) {
    }, { once: boolcheck })
  }
 
+ function secondShowCustomAlert(text1, text2, eventHandler1, eventHandler2) {
+   const alertContainer = document.getElementById('album-popup-alert');
+   if (!alertContainer) {
+     console.error("Element with id 'popup-alert' not found.");
+     return;
+   }
+ 
+   const paragraphs = alertContainer.querySelectorAll('p');
+   if (paragraphs.length < 2) {
+     console.error("Not enough paragraph elements found.");
+     return;
+   }
+ 
+   alertContainer.style.display = 'flex';
+   alertContainer.style.animation = 'popup-alert 500ms forwards ease-out';
+ 
+   paragraphs[0].textContent = text1;
+   paragraphs[0].setAttribute('onclick', eventHandler1);
+ 
+   paragraphs[1].textContent = text2;
+   paragraphs[1].setAttribute('onclick', eventHandler2);
+
+   let boolcheck = false;
+
+   document.addEventListener('click', function doremoveactioncommect(event) {
+      if (!alertContainer.contains(event.target)) {
+         boolcheck = true;
+         alertContainer.style.animation = 'fading-out 300ms forwards ease-out';
+         setTimeout(function() {
+         document.removeEventListener('click', doremoveactioncommect); 
+         alertContainer.style.display = 'none';
+            }, 300);         
+      }
+   }, { once: boolcheck })
+ }
+
 function identifyMediaType(fileUrl) {
    const fileExtension = fileUrl.split('.').pop().toLowerCase();
    const videoExtensions = ['mp4', 'webm', 'ogg', 'mov', 'avi', 'flv'];
@@ -861,6 +897,7 @@ function shuffleArray(array) {
          }, { once: true });
          img.addEventListener('contextmenu', function(event) {
          event.preventDefault();
+         secondShowCustomAlert('Edit Album', 'Delete ALbum', `showcrudalbum(${whenres.album.data.AlbumID})`, `deletecrudalbum(${whenres.album.data.AlbumID})`);
          });
 
          document.getElementById('whatlistmediauser').appendChild(img);
@@ -1619,4 +1656,62 @@ async function filterposthis(idGallery) {
          pushcontents();
       }
    });
-} 
+}
+
+async function showcrudalbum(idGallery) {
+   document.getElementById('uploadmediauser').style.display = 'flex';
+   const getinfo = await fetch('./api/storage/galeri/public');
+   const info = await getinfo.json();
+   const filterinfo = info.gallery.filter(res => res.album.data.AlbumID === idGallery);
+
+   const title = document.getElementById('album-uploadmediauser').querySelector('input[name="mediauser-title"]').value;
+   const desc = document.getElementById('album-uploadmediauser').querySelector('input[name="mediauser-desc"]').value;
+
+   const pic_title = document.querySelector('input[name="whentypinguploadmediauser-name"]').value;
+   const pic_desc = document.querySelector('input[name="whentypinguploadmediauser-desc"]').value;
+
+   const html = document.getElementsByClassName('slider-media-uploadmediauser')[0];
+   html.innerHTML = '';
+   const img = document.createElement('img');
+   img.loading = 'lazy';
+   img.src = filterinfo.fotos[0].LokasiFile;
+   img.alt = 'Preview';
+   html.appendChild(img);
+
+   title = filterinfo.album.data.NamaAlbum;
+   desc = filterinfo.album.data.Deskripsi;
+   pic_title = filterinfo.fotos[0].JudulFoto;
+   pic_desc = filterinfo.fotos[0].DeskripsiFoto;
+
+   if(title == '' || desc == '') {
+      popupalert(title == '' ? "Title's Field was empty." : "Desc's Field was empty.", 'red');
+      return;
+   }
+
+   if(pic_title == '' || pic_desc == '') {
+      popupalert(pic_title == '' ? "Pictures Title was empty." : "Pictures Desc was empty.", 'red');
+      return;
+   }
+
+   const params = {
+      'mediauser-title': title,
+      'mediauser-desc': desc,
+      'whentypinguploadmediauser-name': pic_title,
+      'whentypinguploadmediauser-desc': pic_desc
+   };
+   const req = await fetch('./api/post/request/album', {
+      body: JSON.stringify(params),
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json',
+         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+         },
+   });
+   const res = await req.json();
+   if(res.result) {
+
+   }
+}
+
+async function deletecrudalbum(idGallery) {
+}
